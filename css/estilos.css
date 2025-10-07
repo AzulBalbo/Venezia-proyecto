@@ -1,76 +1,66 @@
-/* Estilos personalizados para el bazar */
-
-/* Estilos para el cuerpo del sitio */
-body {
-    font-family: poppins, sans-serif;
-    background-color: #f8f1e7; /* Color de fondo claro de Bootstrap */
-}
-
-/* Estilos de la barra de navegación */
+@charset "UTF-8";
+/* Variables globales */
+/* Barra de navegación */
 .navbar-brand {
-    font-weight: bold;
-    color: brown !important; /* Color oscuro */
+  font-weight: bold;
+  color: brown !important;
 }
 
 .nav-link.active {
-    font-weight: bold;
-    color: brown !important; /* Color principal de Bootstrap */
-    border-bottom: 2px solid brown;
+  font-weight: bold;
+  color: brown !important;
+  border-bottom: 2px solid brown;
 }
 
-/* Estilos de las tarjetas de productos */
+/* Tarjetas de productos */
 .card {
-    border: none;
-    transition: transform 0.2s;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: none;
+  transition: transform 0.2s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.card .card-img-top {
+  width: 100%;
+  height: 370px;
+  object-fit: cover;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+.card .card-title {
+  color: #495057;
+}
+.card .card-price {
+  font-size: 1.25rem;
+  color: #212529;
 }
 
-.card-img-top {
-    width: 100%;         /* que ocupe todo el ancho */
-    height: 370px;       /* fijamos una altura */
-    object-fit: cover;   /* recorta la imagen manteniendo proporción */
-    border-top-left-radius: 0.5rem; /* opcional, esquinas redondeadas */
-    border-top-right-radius: 0.5rem;
-}
-
-
-.card-title {
-    color: #495057;
-}
-
-.card-price {
-    font-size: 1.25rem;
-    color: #212529;
-}
-
-/* Estilos del carrusel */
+/* Carrusel */
 .carousel-item img {
-    height: 400px;
-    object-fit: cover;
+  height: 400px;
+  object-fit: cover;
 }
 
 .carousel-caption {
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
 }
 
-/* Estilos de los iconos sociales */
+/* Iconos sociales */
 .social-icons a img {
-    border: 2px solid #fff;
+  border: 2px solid #fff;
+  transition: transform 0.3s;
+}
+.social-icons a img:hover {
+  transform: scale(1.1);
 }
 
-.social-icons a:hover img {
-    transform: scale(1.1);
-    transition: transform 0.3s;
-}
-
-/* Estilos del pie de página */
+/* Pie de página */
 footer {
-    background-color: #e9ecef !important;
-    color: #6c757d;
+  background-color: #e9ecef !important;
+  color: #6c757d;
 }
+
+/*# sourceMappingURL=estilos.css.map */
