@@ -1,5 +1,10 @@
 {
   "devDependencies": {
-    "sass": "^1.93.2"
+    "sass": "^1.93.2" 
+  },
+  "scripts": {
+    "sass:build": "sass sass/style.scss css/estilos.css",
+    "sass:watch": "sass --watch sass/style.scss:css/estilos.css",
+    "start": "npm run sass:watch" 
   }
 }

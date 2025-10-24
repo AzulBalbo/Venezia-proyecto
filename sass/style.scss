@@ -1,84 +1,276 @@
-/* Variables globales */
-$font-primary: 'Poppins', sans-serif;
-$color-bg: #f8f1e7;
-$color-navbar: brown;
-$color-text-dark: #212529;
-$color-text-medium: #495057;
-$color-footer-bg: #e9ecef;
-$color-footer-text: #6c757d;
+@charset "UTF-8";
 
-/* Barra de navegación */
+/* === Variables globales === */
+$olive: #6B8F71;        /* verde oliva */
+$olive-dark: #58755C;   /* oliva oscuro */
+$brand-olive-hover: #5e7f64; /* más oscuro para hover */
+$beige: #F5EFE6;        /* beige claro de fondo */
+$lt-brown: #B68C5A;     /* marrón claro */
+$text-dark: #2F2A26;    /* marrón oscuro / texto */
+$container: 1200px;
+
+/* === Espaciados === */
+$gap-xs: .5rem;
+$gap-sm: 1rem;
+$gap-md: 1.5rem;
+$gap-lg: 2rem;
+
+/* === Estructura general === */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: $beige;
+  color: $text-dark;
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  width: min(100% - 2rem, $container);
+  margin-inline: auto;
+}
+
+/* === Header / Navbar === */
+.site-header {
+  background: $beige;
+  border-bottom: 2px solid $lt-brown;
+}
+
 .navbar-brand {
   font-weight: bold;
-  color: $color-navbar !important;
-}
-
-.nav-link {
-  &.active {
-    font-weight: bold;
-    color: $color-navbar !important;
-    border-bottom: 2px solid $color-navbar;
-  }
-}
-
-/* Tarjetas de productos */
-.card {
-  border: none;
-  transition: transform 0.2s;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: $olive;
+  transition: color .3s;
 
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-
-  .card-img-top {
-    width: 100%;
-    height: 370px;
-    object-fit: cover;
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
-  }
-
-  .card-title {
-    color: $color-text-medium;
-  }
-
-  .card-price {
-    font-size: 1.25rem;
-    color: $color-text-dark;
+    color: $olive-dark;
   }
 }
 
-/* Carrusel */
-.carousel-item {
-  img {
-    height: 400px;
-    object-fit: cover;
-  }
-}
+.navbar {
+  .nav-link {
+    color: $olive-dark;
+    font-weight: 500;
+    transition: color .3s, border-bottom .3s;
 
-.carousel-caption {
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 5px;
-}
+    &:hover {
+      color: $olive;
+    }
 
-/* Iconos sociales */
-.social-icons {
-  a {
-    img {
-      border: 2px solid #fff;
-      transition: transform 0.3s;
-
-      &:hover {
-        transform: scale(1.1);
-      }
+    &.active {
+      color: $olive;
+      border-bottom: 2px solid $lt-brown;
     }
   }
 }
 
-/* Pie de página */
-footer {
-  background-color: $color-footer-bg !important;
-  color: $color-footer-text;
+/* === Hero / encabezados === */
+.hero-simple {
+  display: grid;
+  gap: $gap-sm;
+  justify-items: center;
+  padding: $gap-md 0;
+}
+
+h1 {
+  color: $lt-brown;
+}
+
+h2, h3, h4, h5 {
+  color: $text-dark;
+}
+
+/* === Botones === */
+.btn-primary {
+  background-color: $olive;
+  border-color: $olive;
+  color: #fff;
+  transition: background-color .3s, border-color .3s;
+
+  &:hover,
+  &:focus {
+    background-color: $olive-dark;
+    border-color: $olive-dark;
+  }
+}
+
+.btn-outline-primary {
+  color: $olive;
+  border-color: $olive;
+  background: transparent;
+
+  &:hover,
+  &:focus {
+    color: #fff;
+    background: $olive;
+    border-color: $olive;
+  }
+}
+
+/* === Tarjetas === */
+.card {
+  border: none;
+  transition: transform .2s, box-shadow .2s;
+  box-shadow: 0 4px 8px rgba(0,0,0,.1);
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,.2);
+  }
+
+  .card-img-top {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+  }
+
+  .card-title {
+    color: $text-dark;
+  }
+
+  .card-price {
+    font-size: 1.25rem;
+    color: $olive;
+  }
+}
+
+/* === Responsive alto-imagenes === */
+@media (max-width: 479.98px) {
+  .card .card-img-top { height: 260px; }
+}
+
+@media (min-width: 768px) {
+  .card .card-img-top { height: 340px; }
+}
+
+@media (min-width: 1024px) {
+  .card .card-img-top { height: 370px; }
+}
+
+/* === GRID para productos / destacados === */
+.products-grid {
+  display: grid;
+  gap: $gap-md;
+  grid-template-columns: 1fr;
+
+  @media (min-width: 480px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 992px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* === FLEX para contacto === */
+.contact-flex {
+  display: flex;
+  flex-direction: column;
+  gap: $gap-md;
+
+  &__left,
+  &__right {
+    flex: 1 1 0;
+  }
+
+  @media (min-width: 992px) {
+    flex-direction: row;
+    align-items: flex-start;
+
+    &__left { max-width: 58%; }
+    &__right { max-width: 42%; }
+  }
+}
+
+/* === Formulario === */
+form {
+  label {
+    color: $text-dark;
+  }
+
+  .form-control {
+    border-color: $lt-brown;
+
+    &:focus {
+      border-color: $olive;
+      box-shadow: 0 0 0 0.25rem rgba(107,143,113,.25);
+    }
+  }
+}
+
+/* === Footer === */
+.site-footer {
+  background-color: #e9e2d4;
+  color: $text-dark;
+  border-top: 2px solid $lt-brown;
+
+  a {
+    color: $olive;
+    text-decoration: none;
+
+    &:hover {
+      color: $olive-dark;
+    }
+  }
+}
+
+/* === Iconos sociales === */
+.social-icons {
+  align-items: center;
+  gap: .5rem;
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  color: $olive;
+  background-color: transparent;
+  text-decoration: none;
+  border: 2px solid $olive;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+
+  i {
+    font-size: 1.25rem;
+    line-height: 1;
+  }
+
+  &:hover,
+  &:active {
+    transform: scale(1.15);
+    border-color: $brand-olive-hover;
+    box-shadow: 0 4px 10px rgba(107,143,113,0.3);
+    color: $brand-olive-hover;
+  }
+
+  &:focus-visible {
+    outline: 3px solid #000;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(107,143,113,0.25);
+  }
+}
+
+/* === Helpers === */
+.flex {
+  display: flex;
+  gap: $gap-sm;
+}
+
+.flex-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.grid {
+  display: grid;
+  gap: $gap-md;
+}
+
+/* === Media Queries generales === */
+@media (min-width: 1280px) {
+  .container, .wrapper { max-width: $container; }
 }
